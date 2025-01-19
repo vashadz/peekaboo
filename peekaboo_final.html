@@ -1,0 +1,476 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FENDI Peekaboo | Customize Your Elegance</title>
+    <script src="https://distcdn.unlimited3d.com/pres/v/2.12.1/unlimited3d.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jscolor/2.4.6/jscolor.min.js"></script>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Roboto:wght@300;500&display=swap"
+        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Roboto', sans-serif;
+            background: linear-gradient(135deg, #FFD700, #50C878, #3650E7);
+            color: #333;
+            line-height: 1.6;
+        }
+
+        /* HEADER */
+        .header {
+            text-align: center;
+            padding: 60px 20px;
+            background: linear-gradient(135deg, #FF0078, #FFD700);
+            border-bottom: 2px solid #FFD700;
+            background-image: url('bg2.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+        }
+
+        /* .header h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem; 
+            font-weight: 700;
+            color: #fff;
+            margin: 0;
+            text-transform: uppercase;
+        } */
+        .header h1 {
+            font-family: 'Great Vibes', cursive;
+            font-size: 4.5rem;
+            font-weight: 500;
+            color: #fff;
+            margin: 0 auto;
+            letter-spacing: 2px;
+            animation: fadeInSlide 2s ease-in-out;
+            text-shadow: 0 0 20px rgba(255, 215, 0, 0.6);
+            background-color: rgba(255, 255, 255, 0.2);
+            padding: 10px 20px;
+            border-radius: 15px;
+            display: inline-block;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            backdrop-filter: blur(8px);
+        }
+
+        .header h1::after {
+            content: '✨';
+            position: absolute;
+            animation: sparkle 3s infinite ease-in-out;
+            font-size: 1.2rem;
+        }
+
+        /* @keyframes sparkle {
+
+            0%,
+            100% {
+                opacity: 0;
+                transform: scale(0.5) rotate(0deg);
+            }
+
+            50% {
+                opacity: 1;
+                transform: scale(1.2) rotate(180deg);
+            }
+        } */
+
+
+        .header h1 span {
+            color: #FFD700;
+            text-shadow: 0 0 15px rgba(255, 215, 0, 0.6);
+        }
+
+        .header p {
+            font-size: 1.2rem;
+            font-weight: 300;
+            color: #fff;
+            padding: 10px 20px;
+            margin-bottom: 20px;
+            display: inline-block;
+            border-radius: 5px;
+        }
+
+        .header .cta-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            gap: 15px;
+            width: 100%;
+        }
+
+        .header .cta-container p {
+            background: #FF0078;
+            color: #fff;
+            padding: 10px 20px;
+            margin: 0;
+            display: inline-block;
+            font-size: 1.2rem;
+            font-weight: 300;
+            border-radius: 5px;
+
+        }
+
+        .header .cta-button {
+            font-size: 1rem;
+            padding: 10px 25px;
+            border: 2px solid #FFD700;
+            border-radius: 4px;
+            background: #FFD700E6;
+            color: #fff;
+            text-transform: uppercase;
+            font-weight: bold;
+            cursor: pointer;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            display: block;
+            margin: 0 auto;
+        }
+
+        .header .cta-button:hover {
+            background: #fff;
+            color: #FFD700;
+        }
+
+        .hover-image-link {
+            color: #444444;
+            text-decoration: none;
+            position: relative;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .hover-image-link::after {
+            content: "";
+            position: absolute;
+            top: 100%;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 250px;
+            height: 350px;
+            background-image: url('paris-hilton.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            border: 2px solid #FFD700;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.3s ease-in-out;
+            z-index: 10;
+        }
+
+        .hover-image-link:hover::after {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .peekaboo-hover {
+            position: relative;
+            cursor: pointer;
+            font-weight: bold;
+            background: linear-gradient(90deg, #FFFFFF, #50C878, #ADD8E6);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-fill-color: transparent;
+        }
+
+        /* Image appears when hovering over "Peekaboo" */
+        .peekaboo-hover::after {
+            content: "";
+            position: absolute;
+            top: 100%;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 250px;
+            height: 180px;
+            background-image: url('FENDI-Peekaboo.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            border: 2px solid #FFD700;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.3s ease-in-out;
+            z-index: 10;
+        }
+
+        /* Show image on hover */
+        .peekaboo-hover:hover::after {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .gradient-text {
+            background: linear-gradient(90deg, #FFFFFF, #FFE135, #ADD8E6);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-fill-color: transparent;
+            font-weight: bold;
+            animation: gradientAnimation 3s infinite alternate;
+        }
+
+        /* Animation to move the gradient */
+        @keyframes gradientAnimation {
+            0% {
+                background-position: 0% 50%;
+            }
+
+            100% {
+                background-position: 100% 50%;
+            }
+        }
+
+
+        /* MAIN LAYOUT */
+        .main {
+            display: flex;
+            justify-content: space-between;
+            align-items: stretch;
+            gap: 20px;
+            padding: 40px;
+            height: calc(100vh - 260px);
+            /* height: calc(100vh - 180px); */
+            box-sizing: border-box;
+        }
+
+        /* 3D VIEWER */
+        #container3d_replace {
+            flex: 3;
+            height: 100%;
+            border-radius: 12px;
+            border: 1px solid #ddd;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            background: #fff;
+        }
+
+        /* COLOR CUSTOMIZATION SECTION */
+        .controls {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            padding: 20px;
+            background: #ffffff;
+            border: 1px solid #e2d7c9;
+            border-radius: 12px;
+            box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
+            flex: 1;
+            overflow-y: auto;
+            max-width: 400px;
+        }
+
+        .color-control {
+            text-align: center;
+            background: #FF0078;
+            padding: 10px;
+            border-radius: 10px;
+            border: 1px solid #FFD700;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+            color: #ffffff;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            flex: 1 1 calc(50% - 20px);
+            box-sizing: border-box;
+        }
+
+        .color-control:hover {
+            transform: translateY(-5px);
+            box-shadow: 0px 8px 16px rgba(255, 215, 0, 0.6);
+        }
+
+        .color-control h4 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.1rem;
+            margin-bottom: 10px;
+        }
+
+        input {
+            width: 100%;
+            height: 35px;
+            border: none;
+            border-radius: 8px;
+            text-align: center;
+            font-size: 1rem;
+            background: #fff;
+            color: #333;
+            border: 1px solid #ddd;
+            margin-bottom: 10px;
+            box-sizing: border-box;
+        }
+
+        .apply-button {
+            width: 100%;
+            padding: 8px 15px;
+            border: none;
+            border-radius: 8px;
+            font-size: 0.9rem;
+            font-weight: 500;
+            text-transform: uppercase;
+            background: #FFD700;
+            color: #fff;
+            cursor: pointer;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .apply-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 0 10px rgba(255, 215, 0, 0.7);
+        }
+
+        /* PURCHASE SECTION */
+        .purchase {
+            text-align: center;
+            padding: 40px 20px;
+            background: linear-gradient(135deg, #FF0078, #3650E7);
+            background-image: url('bg3.jpeg');
+            background-size: cover;
+            background-position: center;
+            color: #fff;
+            border-top: 2px solid #FFD700;
+        }
+
+        .purchase h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+        }
+
+        .purchase-button {
+            padding: 15px 40px;
+            font-size: 1rem;
+            text-transform: uppercase;
+            border: 2px solid #3650E7;
+            border-radius: 4px;
+            background: #50C878;
+            color: #fff;
+            cursor: pointer;
+            transition: background 0.3s ease, color 0.3s ease;
+        }
+
+        .purchase-button:hover {
+            background: transparent;
+            color: #50C878;
+        }
+
+        .purchase p {
+            font-size: 1rem;
+            margin-top: 15px;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- HEADER -->
+    <div class="header">
+        <h1>Peekaboo <span>Elegance</span></h1>
+        <br>
+
+        <p style="background: #FF0078B3; margin-bottom: 20px;"> Why wait for a <a class="hover-image-link">baguette</a>
+            when you can customize your <span class="peekaboo-hover">Peekaboo</span>?
+        </p>
+        <button class="cta-button" onclick="scrollToViewer()">Start Designing</button>
+    </div>
+
+    <!-- MAIN LAYOUT -->
+    <div class="main">
+        <!-- 3D VIEWER -->
+        <div id="container3d_replace"></div>
+
+        <!-- COLOR CUSTOMIZATION SECTION -->
+        <div class="controls">
+            <div class="color-control">
+                <h4>Front Leather</h4>
+                <input data-jscolor="{value:'3650E7'}" id="frontLeatherColor">
+                <button class="apply-button"
+                    onclick="changeColor('Leather_smooth_kiwi', frontLeatherColor.jscolor)">Apply</button>
+            </div>
+            <div class="color-control">
+                <h4>Metal</h4>
+                <input data-jscolor="{value:'FFD700'}" id="metalColor">
+                <button class="apply-button" onclick="changeColor('H_Palladium', metalColor.jscolor)">Apply</button>
+            </div>
+            <div class="color-control">
+                <h4>Handles</h4>
+                <input data-jscolor="{value:'FF0078'}" id="handlesColor">
+                <button class="apply-button"
+                    onclick="changeColor('Leather_smooth_milk', handlesColor.jscolor)">Apply</button>
+            </div>
+            <div class="color-control">
+                <h4>Trim Handle</h4>
+                <input data-jscolor="{value:'50C878'}" id="trimHandleColor">
+                <button class="apply-button"
+                    onclick="changeColor('Trim_leather', trimHandleColor.jscolor)">Apply</button>
+            </div>
+            <div class="color-control">
+                <h4>Metal Details</h4>
+                <input data-jscolor="{value:'AAAAAA'}" id="metalDetailsColor">
+                <button class="apply-button"
+                    onclick="changeColor('H_Palladium.001', metalDetailsColor.jscolor)">Apply</button>
+            </div>
+            <div class="color-control">
+                <h4>Inside Material</h4>
+                <input data-jscolor="{value:'444444'}" id="insideMaterialColor">
+                <button class="apply-button"
+                    onclick="changeColor('Cuoio_asphalt', insideMaterialColor.jscolor)">Apply</button>
+            </div>
+            <div class="color-control">
+                <h4>Stitches</h4>
+                <input data-jscolor="{value:'000000'}" id="stitchesColor">
+                <button class="apply-button"
+                    onclick="changeColor('Stitches_milk', stitchesColor.jscolor)">Apply</button>
+            </div>
+            <div class="color-control">
+                <h4>Inside Zipper</h4>
+                <input data-jscolor="{value:'555555'}" id="insideZipperColor">
+                <button class="apply-button"
+                    onclick="changeColor('Zipper_asphalt', insideZipperColor.jscolor)">Apply</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- PURCHASE SECTION -->
+    <section class="purchase">
+        <h3>Ready to Make It Yours?</h3>
+        <button class="purchase-button" onclick="purchaseDesign()">Purchase Now</button>
+        <br>
+        <p>Designed by you, delivered to you.</p>
+    </section>
+
+    <script>
+        const options = {
+            distID: 'bbd0f4df-cd1d-4659-812a-5d7166f7a3ce',
+            solution3DName: 'peekaboo',
+            projectName: 'example',
+            solution3DID: '67073',
+            containerID: 'container3d_replace',
+        };
+
+        const unlimited3D = Unlimited3D.init(options);
+
+        function changeColor(materialName, colorPicker) {
+            const color = `#${colorPicker.toHEXString().replace('#', '')}`;
+            Unlimited3D.changeMaterialColor({
+                material: materialName,
+                color: color,
+            });
+        }
+
+        function scrollToViewer() {
+            document.getElementById('container3d_replace').scrollIntoView({ behavior: 'smooth' });
+        }
+
+        function purchaseDesign() {
+            alert("Thank you for embracing the art of customization! Next stop? Your doorstep.");
+        }
+    </script>
+</body>
+
+</html>
