@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FENDI Peekaboo | Customize Your Elegance</title>
+    <script src="https://distcdn.unlimited3d.com/pres/v/2.12.1/unlimited3d.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jscolor/2.4.6/jscolor.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Roboto:wght@300;500&display=swap" rel="stylesheet">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Roboto', sans-serif;
+            background: #f9f8f4;
+            color: #333;
+            line-height: 1.6;
+            background-image: radial-gradient(circle at center, #ffffff, #f4e8d5);
+        }
+
+        /* HEADER */
+        .header {
+            text-align: center;
+            padding: 120px 20px;
+            background: linear-gradient(135deg, #fff8f0, #f4e8d5);
+            border-bottom: 2px solid #d4af37;
+        }
+
+        .header h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 3.5rem;
+            font-weight: 700;
+            color: #333;
+            margin: 0;
+            text-transform: uppercase;
+        }
+
+        .header h1 span {
+            color: #d4af37;
+            text-shadow: 0 0 15px rgba(212, 175, 55, 0.6);
+        }
+
+        .header p {
+            font-size: 1.2rem;
+            font-weight: 300;
+            color: #555;
+            margin: 20px 0 40px;
+        }
+
+        .header .cta-button {
+            font-size: 1rem;
+            padding: 15px 35px;
+            border: 2px solid #d4af37;
+            border-radius: 4px;
+            background: transparent;
+            color: #d4af37;
+            text-transform: uppercase;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background 0.3s ease, color 0.3s ease;
+        }
+
+        .header .cta-button:hover {
+            background: #d4af37;
+            color: #fff;
+        }
+
+        /* MAIN LAYOUT */
+        .main {
+            display: flex;
+            justify-content: space-between;
+            align-items: stretch;
+            gap: 20px;
+            padding: 40px;
+            height: calc(100vh - 260px);
+        }
+
+        /* COLOR CUSTOMIZATION SECTION */
+        .controls {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            padding: 20px;
+            background: #fff;
+            border: 1px solid #e2d7c9;
+            border-radius: 12px;
+            box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
+            flex: 1;
+            overflow-y: auto;
+            max-width: 400px;
+        }
+
+        .color-control {
+            text-align: center;
+            background: #fff8f0;
+            padding: 15px;
+            border-radius: 10px;
+            border: 1px solid #e2d7c9;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            flex: 1 1 calc(50% - 20px);
+            box-sizing: border-box;
+        }
+
+        .color-control:hover {
+            transform: translateY(-5px);
+            box-shadow: 0px 8px 16px rgba(212, 175, 55, 0.3);
+        }
+
+        .color-control h4 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.3rem;
+            margin-bottom: 10px;
+            color: #333;
+        }
+
+        input {
+            width: 100%;
+            height: 40px;
+            border: none;
+            border-radius: 8px;
+            text-align: center;
+            font-size: 1rem;
+            background: #f8f8f8;
+            color: #333;
+            border: 1px solid #ddd;
+            box-sizing: border-box;
+            margin-bottom: 15px; 
+        }
+
+        .apply-button {
+            width: 100%;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 8px;
+            font-size: 1rem;
+            font-weight: 500;
+            text-transform: uppercase;
+            background: #d4af37;
+            color: white;
+            cursor: pointer;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .apply-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 0 15px rgba(212, 175, 55, 0.7);
+        }
+
+        /* 3D VIEWER */
+        #container3d_replace {
+            flex: 2;
+            height: 100%;
+            border-radius: 12px;
+            border: 1px solid #e2d7c9;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            background: #fff;
+        }
+
+        /* PURCHASE SECTION */
+        .purchase {
+            text-align: center;
+            padding: 60px 20px;
+            background: linear-gradient(135deg, #fff8f0, #f4e8d5);
+            color: #333;
+            border-top: 2px solid #d4af37;
+        }
+
+        .purchase h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2rem;
+            margin-bottom: 20px;
+            color: #333;
+        }
+
+        .purchase-button {
+            padding: 15px 40px;
+            font-size: 1rem;
+            text-transform: uppercase;
+            border: 2px solid #d4af37;
+            border-radius: 4px;
+            background: #d4af37;
+            color: #fff;
+            cursor: pointer;
+            transition: background 0.3s ease, color 0.3s ease;
+        }
+
+        .purchase-button:hover {
+            background: transparent;
+            color: #d4af37;
+        }
+
+        .purchase p {
+            font-size: 0.9rem;
+            margin-top: 15px;
+            color: #666;
+        }
+    </style>
+</head>
+<body>
+    <!-- HEADER -->
+    <div class="header">
+        <h1>Peekaboo <span>Elegance</span></h1>
+        <p>Design your vision. Own your style. Discover the future of customization.</p>
+        <button class="cta-button" onclick="scrollToViewer()">Start Designing</button>
+    </div>
+
+    <!-- MAIN LAYOUT -->
+    <div class="main">
+        <!-- 3D VIEWER -->
+        <div id="container3d_replace"></div>
+
+        <!-- COLOR CUSTOMIZATION SECTION -->
+        <div class="controls">
+            <div class="color-control">
+                <h4>Front Leather</h4>
+                <input data-jscolor="{value:'213c0a'}" id="frontLeatherColor">
+                <button class="apply-button" onclick="changeColor('Leather_smooth_kiwi', frontLeatherColor.jscolor)">Apply</button>
+            </div>
+            <div class="color-control">
+                <h4>Metal</h4>
+                <input data-jscolor="{value:'cccccc'}" id="metalColor">
+                <button class="apply-button" onclick="changeColor('H_Palladium', metalColor.jscolor)">Apply</button>
+            </div>
+            <div class="color-control">
+                <h4>Handles</h4>
+                <input data-jscolor="{value:'ffffff'}" id="handlesColor">
+                <button class="apply-button" onclick="changeColor('Leather_smooth_milk', handlesColor.jscolor)">Apply</button>
+            </div>
+            <div class="color-control">
+                <h4>Trim Handle</h4>
+                <input data-jscolor="{value:'654321'}" id="trimHandleColor">
+                <button class="apply-button" onclick="changeColor('Trim_leather', trimHandleColor.jscolor)">Apply</button>
+            </div>
+            <div class="color-control">
+                <h4>Metal Details</h4>
+                <input data-jscolor="{value:'aaaaaa'}" id="metalDetailsColor">
+                <button class="apply-button" onclick="changeColor('H_Palladium.001', metalDetailsColor.jscolor)">Apply</button>
+            </div>
+            <div class="color-control">
+                <h4>Inside Material</h4>
+                <input data-jscolor="{value:'444444'}" id="insideMaterialColor">
+                <button class="apply-button" onclick="changeColor('Cuoio_asphalt', insideMaterialColor.jscolor)">Apply</button>
+            </div>
+            <div class="color-control">
+                <h4>Stitches</h4>
+                <input data-jscolor="{value:'000000'}" id="stitchesColor">
+                <button class="apply-button" onclick="changeColor('Stitches_milk', stitchesColor.jscolor)">Apply</button>
+            </div>
+            <div class="color-control">
+                <h4>Inside Zipper</h4>
+                <input data-jscolor="{value:'555555'}" id="insideZipperColor">
+                <button class="apply-button" onclick="changeColor('Zipper_asphalt', insideZipperColor.jscolor)">Apply</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- PURCHASE SECTION -->
+    <section class="purchase">
+        <h3>Ready to Make It Yours?</h3>
+        <button class="purchase-button" onclick="purchaseDesign()">Purchase Now</button>
+        <p>Experience the art of digital luxury.</p>
+    </section>
+
+    <script>
+        const options = {
+            distID: '5fe18874-ffec-4c7b-b96c-f4015a120929',
+            solution3DName: 'peekaboo',
+            projectName: 'example',
+            solution3DID: '67073',
+            containerID: 'container3d_replace',
+        };
+
+        const unlimited3D = Unlimited3D.init(options);
+
+        function changeColor(materialName, colorPicker) {
+            const color = `#${colorPicker.toHEXString().replace('#', '')}`;
+            Unlimited3D.changeMaterialColor({
+                material: materialName,
+                color: color,
+            });
+        }
+
+        function scrollToViewer() {
+            document.getElementById('container3d_replace').scrollIntoView({ behavior: 'smooth' });
+        }
+
+        function purchaseDesign() {
+            alert("Thank you for embracing the art of customization!");
+        }
+    </script>
+</body>
+</html>
